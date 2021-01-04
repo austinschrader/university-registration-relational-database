@@ -1,0 +1,13 @@
+@{
+    Layout = "_Layout";
+}
+
+@using Registrar.Models;
+@model List<Registrar.Models.Course>;
+
+<h2>Course Page</h2>
+
+@if (@Model.Count == 0)
+{
+  <h3>No courses have been added to database</h3>
+}
