@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Models;
+using Registrar.Models;
 
 namespace Registrar
 {
@@ -25,7 +25,7 @@ namespace Registrar
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-          .AddDbContext<ToDoListContext>(options => options
+          .AddDbContext<RegistrarContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
