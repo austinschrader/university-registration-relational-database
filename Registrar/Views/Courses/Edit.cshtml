@@ -6,7 +6,7 @@
 
 <h2>Edit Course</h2>
 
-<h4>Edit this category: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Edit this course: @Html.DisplayFor(model => model.Name)@Html.DisplayFor(model => model.Number)</h4>
 
 @using (Html.BeginForm())
 {
@@ -24,4 +24,3 @@
 <p>@Html.ActionLink("Back to courses", "Index")</p>
 
 
-@* <h4>Edit this course: @Html.DisplayFor(model => model.Name)@Html.DisplayFor(model => model.Number)</h4> *@
