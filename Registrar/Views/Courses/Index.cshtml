@@ -11,3 +11,12 @@
 {
   <h3>No courses have been added to database</h3>
 }
+
+@foreach (Course course in Model)
+{
+  <li>@Html.ActionLink($"{course.Name}", "Details", new { id = course.CourseId })</li>
+}
+
+<p>@Html.ActionLink("Add new Course", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
