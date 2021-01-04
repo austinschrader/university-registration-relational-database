@@ -24,4 +24,5 @@ else
 }
 
 <p>@Html.ActionLink("Back to courses", "Index")</p>
-<p>@Html.ActionLink("Edit course details", "Edit")</p>
+<p>@Html.ActionLink("Edit course details", "Edit", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p>
