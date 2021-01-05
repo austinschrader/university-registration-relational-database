@@ -21,6 +21,11 @@ else
     @foreach(var join in Model.Departments)
     {
       <li>@join.Department.Name</li>
+      @using (Html.BeginForm("DeleteDepartment", "Students"))
+      {
+        @Html.Hidden("joinId", @join.DepartmentStudentId)
+        <input type="submit" value="Delete Major"/>
+      }
     }
     </ul>
 }
