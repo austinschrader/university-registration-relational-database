@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Registrar.Migrations
@@ -28,7 +29,7 @@ namespace Registrar.Migrations
                     StudentId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
-                    EnrollmentDate = table.Column<string>(nullable: true)
+                    EnrollmentDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
