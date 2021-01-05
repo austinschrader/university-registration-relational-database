@@ -1,0 +1,28 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Registrar.Models.Department;
+
+<h2>Department Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.Courses.Count == 0)
+{
+  <p>No courses assigned to this department</p>
+}
+else
+{
+  <h4>Courses in department:</h4>
+  <ul>
+  @foreach(var join in Model.Courses)
+  {
+    <li>@join.Course.Name</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to departments", "Index")</p>
+<p>@Html.ActionLink("Edit department details", "Edit", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Delete department", "Delete", new { id = Model.DepartmentId })</p>
