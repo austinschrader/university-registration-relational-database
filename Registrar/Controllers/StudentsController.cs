@@ -44,6 +44,8 @@ namespace Registrar.Controllers
       var thisStudent = _db.Students
           .Include(student => student.Courses)
           .ThenInclude(join => join.Course)
+          .Include(student => student.Departments)
+          .ThenInclude(join => join.Department)
           .FirstOrDefault(student => student.StudentId == id);
       return View(thisStudent);
     }
@@ -105,6 +107,24 @@ namespace Registrar.Controllers
     {
       var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
       _db.CourseStudent.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult AddDepartment(int id) // Allow students to declare their major
+    {
+      var thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name", "Number");
+      return View(thisStudent);
+    }
+
+    [HttpPost]
+    public ActionResult AddDepartment(Student student, int DepartmentId)
+    {
+      if (DepartmentId != 0)
+      {
+        _db.DepartmentStudent.Add(new DepartmentStudent() { DepartmentId = DepartmentId, StudentId = student.StudentId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
