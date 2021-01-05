@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Registrar.Models
 {
@@ -12,7 +15,10 @@ namespace Registrar.Models
 
     public int StudentId { get; set; }
     public string Name { get; set; }
-    public string EnrollmentDate { get; set; }
+
+    public DateTime EnrollmentDate { get; set; }
+    [DisplayName("Enrollment Date")]
+    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 
     public ICollection<CourseStudent> Courses { get; }
   }
