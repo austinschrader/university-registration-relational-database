@@ -8,6 +8,7 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)@Html.DisplayFor(model => model.Number)</h3>
 
+
 @if(@Model.Students.Count == 0)
 {
   <p>No students assigned to this course</p>
@@ -21,10 +22,10 @@ else
     <li>@join.Student.Name</li>
   }
   </ul>
-
 }
 
 <p>@Html.ActionLink("Back to courses", "Index")</p>
 <p>@Html.ActionLink("Add a department", "AddDepartment", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Edit course details", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p>
+
