@@ -9,6 +9,23 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <h3>@Html.DisplayNameFor(model => model.EnrollmentDate): @Html.DisplayFor(model => model.EnrollmentDate)</h3>
 
+
+@if(@Model.Departments.Count == 0)
+{
+  <p>This student has not declared their major</p>
+}
+else
+{
+    <h4>Declared Major</h4>
+    <ul>
+    @foreach(var join in Model.Departments)
+    {
+      <li>@join.Department.Name</li>
+    }
+    </ul>
+}
+
+
 @if(@Model.Courses.Count == 0)
 {
   <p>This student not enrolled in any courses</p>
@@ -19,7 +36,7 @@ else
   <ul>
   @foreach(var join in Model.Courses)
   {
-    <li>@join.Course.Name @join.Course.Number</li>
+    <li>@join.Course.Name @join.Course.Number </li>
     @using (Html.BeginForm("DeleteCourse", "Students"))
     {
       @Html.Hidden("joinId", @join.CourseStudentId)
@@ -32,4 +49,5 @@ else
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit student", "Edit", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Add a course", "AddCourse", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Declare major", "AddDepartment", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Delete student", "Delete", new { id = Model.StudentId })</p>

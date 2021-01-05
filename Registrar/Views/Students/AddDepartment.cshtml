@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Student
+
+<h2>Declare a major</h2>
+
+<h4>Declare a major Mr/Mrs: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StudentId)
+
+  @Html.Label("Select major")
+  @Html.DropDownList("DepartmentId")
+
+  <input type="submit" value="Declare It!" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
