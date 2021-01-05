@@ -18,8 +18,8 @@ namespace Registrar.Controllers
 
     public ActionResult Index()
     {
-      // List<Department> model = _db.Departments.ToList();
-      return View();
+      List<Department> model = _db.Departments.ToList();
+      return View(model);
     }
   }
 }
