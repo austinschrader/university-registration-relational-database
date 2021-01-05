@@ -15,7 +15,6 @@ namespace Registrar.Models
 
     public int StudentId { get; set; }
     public string Name { get; set; }
-
     public DateTime EnrollmentDate { get; set; }
     [DisplayName("Enrollment Date")]
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
