@@ -11,6 +11,7 @@ namespace Registrar.Models
     public Student()
     {
       this.Courses = new HashSet<CourseStudent>();
+      this.Departments = new HashSet<DepartmentStudent>();
     }
 
     public int StudentId { get; set; }
@@ -20,5 +21,6 @@ namespace Registrar.Models
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
 
     public ICollection<CourseStudent> Courses { get; }
+    public ICollection<DepartmentStudent> Departments { get; set; }
   }
 }
