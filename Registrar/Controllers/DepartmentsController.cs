@@ -58,5 +58,14 @@ namespace Registrar.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpPost]
+    public ActionResult DeleteCourse(int joinId)
+    {
+      var joinEntry = _db.DepartmentCourse.FirstOrDefault(entry => entry.DepartmentCourseId == joinId);
+      _db.DepartmentCourse.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }
